@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-from .secrets import secret_key
+from .secrets import email_user, email_pass, secret_key
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -132,3 +132,11 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Login redirect and variables
 LOGIN_REDIRECT_URL = 'blog-home'
 LOGIN_URL = 'login'
+
+# Email password redirect
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = email_user
+EMAIL_HOST_PASSWORD = email_pass
