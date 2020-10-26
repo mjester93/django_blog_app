@@ -17,4 +17,12 @@
             <p class="article-content">{{ object.content }}</p>
         </div>
     </article>
+    <div class="post-comments">
+        {% for comment in comments %}
+            <div class="comment-metadata">
+                <a class="mr-2" href="{% url 'user-posts' comment.author.username %}">{{ comment.author }}</a>
+            </div>
+            <p class="comment-content">{{ comment.content }}</p>
+        {% endfor %}
+    </div>
 {% endblock content %}
